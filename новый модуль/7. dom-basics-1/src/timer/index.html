@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+  </head>
+  
+  <body>
+    <main>
+      <form action="#" class="form">
+        <input type="text" class="enter" placeholder="countdown timer">
+  
+        <button class="enter-btn">Enter</button>
+      </form>
+  
+      <div class="timer">0</div>
+    </main>
+  
+    <script>
+      let form = document.querySelector('.form');
+      let input = document.querySelector('.enter');
+      let timer = document.querySelector('.timer');
+  
+      let intervalId;
+  
+      let run = () => {
+        timer.innerHTML = --timer.innerHTML;
+      }
+  
+      let cancel = () => {
+        clearInterval(intervalId);
+      }
+  
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if (Math.sign(input.value) === 1) {
+          timer.style.color = 'black';
+          timer.innerHTML = input.value
+          cancel()
+  
+          intervalId = setInterval(() => {
+            run()
+          
+            if (timer.innerHTML == 0) {
+              clearInterval(intervalId)
+            }
+          }, 1000);
+        } else {
+          cancel()
+          timer.innerHTML = 'Enter a positive number';
+          timer.style.color = 'red';
+        }
+      })
+    </script>
+  </body>
+  
+  </html>
+  
+</body>
+
+</html>

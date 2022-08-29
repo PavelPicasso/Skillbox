@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input with delay</title>
+</head>
+
+<body>
+  <main>
+    <form>
+      <input type="text" class="enter" placeholder="Enter text">
+    </form>
+
+    <h2 class="result"></h2>
+  </main>
+
+  <script>
+    let input = document.querySelector('.enter');
+    let h2 = document.querySelector('.result');
+    let timer;
+
+    input.addEventListener('input', () => {
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        h2.innerHTML = input.value;
+      }, 300);
+    })
+  </script>
+</body>
+
+</html>
